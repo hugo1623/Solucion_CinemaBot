@@ -3,6 +3,7 @@
 //
 // Generated with Bot Builder V4 SDK Template for Visual Studio EmptyBot v4.12.2
 
+using CinemaBot.Services.LuisAI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Bot.Builder;
@@ -31,6 +32,7 @@ namespace CinemaBot
             // Create the Bot Framework Adapter with error handling enabled.
             services.AddSingleton<IBotFrameworkHttpAdapter, AdapterWithErrorHandler>();
 
+            services.AddSingleton<ILuisAIService, LuisAIService>();
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
             services.AddTransient<IBot, CinemaBot>();
         }
